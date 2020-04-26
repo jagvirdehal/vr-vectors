@@ -4,10 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VR Vectors</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
 </head>
 <body>
   <center>
     <h1>Welcome to VR Vectors</h1>
   </center>
+  <a-scene>
+    <a-box color="red" position="0 2 -5" rotation="0 45 45" scale="2 2 2">
+      <a-sphere color="green" position="1 0 3"></a-sphere>
+    </a-box>
+    <a-entity environment="preset: forest; dressingAmount: 0"></a-entity>
+  </a-scene>
 </body>
 </html>
