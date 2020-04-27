@@ -36,6 +36,10 @@
       <a-plane src="#grid" rotation="0 90 0" width=16 height=16 repeat="16 16" material="shader: flat; side: double; transparent: false; alphaTest: 0.1; opacity: 0.4"></a-plane>
       <a-plane src="#grid" rotation="90 0 0" width=16 height=16 repeat="16 16" material="shader: flat; side: double; transparent: false; alphaTest: 0.1; opacity: 0.4"></a-plane>
     </a-entity>
+    
+    <a-entity rotation="45 0 -45" animation="enabled: true; property: object3D.rotation.y; to: 360; dur: 3000; loop: true; easing: linear">
+      <a-cylinder position="0 2 0" color="blue" radius=0.05 height=3.7></a-cylinder>
+      <a-cone position="0 4 0" color="blue" radius-bottom=0.1 height=0.3></a-cone>
     </a-entity>
     
     <a-sky color="#444"></a-sky>
