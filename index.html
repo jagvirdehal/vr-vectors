@@ -6,9 +6,19 @@
   <title>VR Vectors</title>
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+    a-scene {
+      display: block;
+      height: 100vh;
+      width: 100vw;
+    }
+  </style>
 </head>
 <body>
-  <a-scene>
+  <a-scene embedded vr-mode-ui="enabled: false">
     <a-assets>
       <img id="grid" src="img/Grid15px.png">
     </a-assets>
