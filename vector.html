@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VR Vectors</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+  <script src="vector.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+    a-scene {
+      display: block;
+      height: 100vh;
+      width: 100vw;
+    }
+  </style>
+</head>
+<body>
+  <a-scene embedded vr-mode-ui="enabled: false">
+    <a-plane color="#222" rotation="-90 0 0" width=2 height=2></a-plane>
+    <a-entity vector3="origin: 1 0 1; location: 1 1 1; radius: 0.01; color: blue"></a-entity>
+    <a-box position="1 1 1" width=0.01 height=0.01 depth=0.01 material="opacity: 0.4;"></a-box>
+    <a-entity foo></a-entity>
+
+    <a-vector3 radius=0.01></a-vector3>
+
+    <!-- Lighting and environment -->
+    <a-light intensity="2" position="0 8 0"></a-light>
+    <a-light type="ambient" color="#999"></a-light>
+    <a-sky color="#222"></a-sky>
+
+    <!-- Camera -->
+    <a-entity camera look-controls="enabled: false" orbit-controls="target: 0 0 0; minDistance: 0.5; maxDistance: 180; initialPosition: 1 1 2"></a-entity>
+  </a-scene>
+</body>
+</html>
