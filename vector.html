@@ -7,6 +7,7 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
   <script src="vector.js"></script>
+  <script src="gridaxis.js"></script>
   <style>
     body {
       margin: 0;
@@ -20,12 +21,17 @@
 </head>
 <body>
   <a-scene embedded vr-mode-ui="enabled: false">
+    <a-assets>
+      <img id="grid" src="img/Grid15px.png">
+    </a-assets>
     <a-plane color="#222" rotation="-90 0 0" width=2 height=2></a-plane>
     <a-entity vector3="origin: 1 0 1; location: 1 1 1; radius: 0.01; color: blue"></a-entity>
     <a-box position="1 1 1" width=0.01 height=0.01 depth=0.01 material="opacity: 0.4;"></a-box>
     <a-entity foo></a-entity>
 
-    <a-vector3 radius=0.01></a-vector3>
+    <a-gridaxis size=6 src="img/Grid15px.png"></a-gridaxis>
+
+    <a-vector3 position="0 0 0" radius=0.01></a-vector3>
 
     <!-- Lighting and environment -->
     <a-light intensity="2" position="0 8 0"></a-light>
