@@ -34,7 +34,7 @@ AFRAME.registerComponent("gridaxis", {
     repeat: {default: 1},
 
     // Grid texture
-    grid: {type: "asset"},
+    grid: {type: "map"},
 
     // Color settings
     x_color: {default: '#f00', type: 'color'},
@@ -134,9 +134,15 @@ AFRAME.registerComponent("gridaxis", {
     XZ.setAttribute('repeat', `${x_repeat} ${z_repeat}`);
 
     // Texture
-    XY.setAttribute('src', `${this.data.grid}`);
-    YZ.setAttribute('src', `${this.data.grid}`);
-    XZ.setAttribute('src', `${this.data.grid}`);
+    if (typeof(this.data.grid) === "object") {
+      XY.setAttribute('src', `${this.data.grid.src}`);
+      YZ.setAttribute('src', `${this.data.grid.src}`);
+      XZ.setAttribute('src', `${this.data.grid.src}`);
+    } else {
+      XY.setAttribute('src', `${this.data.grid}`);
+      YZ.setAttribute('src', `${this.data.grid}`);
+      XZ.setAttribute('src', `${this.data.grid}`);
+    }
 
     // Material
     XY.setAttribute('material', `shader: flat; side: double; transparent: false; alphaTest: 0.1; opacity: 0.4`);
