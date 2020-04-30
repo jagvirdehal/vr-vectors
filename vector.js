@@ -29,8 +29,6 @@ AFRAME.registerComponent("vector3", {
   },
 
   init: function () {
-    console.log(this.data);
-
     /* Wrapper used for rotation and translation
        Body used to draw the 'line' part of the vector
        Head used to create 'pointer' on the head */
@@ -94,6 +92,5 @@ AFRAME.registerComponent("vector3", {
     this.el.appendChild(wrapper);
     wrapper.appendChild(body);
     wrapper.appendChild(head);
-    console.log(this);
   },
 });
