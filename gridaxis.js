@@ -1,4 +1,4 @@
-AFRAME.registerPrimitive("a-gridaxis", {
+AFRAME.registerPrimitive("a-grid", {
   defaultComponents: {
     gridaxis: {}
   },
