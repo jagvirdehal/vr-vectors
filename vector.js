@@ -15,17 +15,17 @@ AFRAME.registerPrimitive("a-vector3", {
 AFRAME.registerComponent("vector3", {
   schema: {
     // Location of head/tail
-    origin: { default: { x: 0, y: 0, z: 0 }, type: "vec3" },
-    location: { default: { x: 1, y: 1, z: 1 }, type: "vec3" },
+    origin: {default: {x: 0, y: 0, z: 0}, type: "vec3"},
+    location: {default: {x: 1, y: 1, z: 1}, type: "vec3"},
 
     // Whether location is the absolute coordinate or delta coords
     delta: {default: false},
 
     // Size of vector
-    radius: { default: 0.05, min: 0 },
+    radius: {default: 0.05, min: 0},
 
     // Material settings
-    color: { default: "#fff", type: "color" },
+    color: {default: "#fff", type: "color"},
   },
 
   init: function () {
