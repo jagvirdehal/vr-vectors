@@ -69,10 +69,10 @@ AFRAME.registerComponent("gridaxis", {
     let y_size = this.data.y_max - this.data.y_min;
     let z_size = this.data.z_max - this.data.z_min;
 
-    if (this.data.size > 0 && this.data.size % 2 === 0) {
-      x_size = this.data.size;
-      y_size = this.data.size;
-      z_size = this.data.size;
+    if (this.data.size > 0) {
+      x_size = this.data.size * 2;
+      y_size = this.data.size * 2;
+      z_size = this.data.size * 2;
     }
 
     // Offsets
