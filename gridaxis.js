@@ -4,22 +4,14 @@ AFRAME.registerPrimitive("a-grid", {
   },
 
   mappings: {
-    x_min: "gridaxis.x_min",
-    y_min: "gridaxis.y_min",
-    z_min: "gridaxis.z_min",
-
-    x_max: "gridaxis.x_max",
-    y_max: "gridaxis.y_max",
-    z_max: "gridaxis.z_max",
-
+    min: "gridaxis.min",
+    max: "gridaxis.max",
     size: "gridaxis.size",
 
     radius: "gridaxis.radius",
-
     repeat: "gridaxis.repeat",
     
     src: "gridaxis.grid",
-
     x_color: "gridaxis.x_color",
     y_color: "gridaxis.y_color",
     z_color: "gridaxis.z_color",
@@ -28,17 +20,12 @@ AFRAME.registerPrimitive("a-grid", {
 
 AFRAME.registerComponent("gridaxis", {
   schema: {
-    // Axis lower bounds
-    x_min: {default: -8, max: 0},
-    y_min: {default: -8, max: 0},
-    z_min: {default: -8, max: 0},
+    // Min/max vectors
+    min: {default: {x: -8, y: -8, z: -8}, type: "vec3"},
+    max: {default: {x: 8, y: 8, z: 8}, type: "vec3"},
 
-    // Axis upper bounds
-    x_max: {default: 8, min: 0},
-    y_max: {default: 8, min: 0},
-    z_max: {default: 8, min: 0},
-
-    size: {default: -1},
+    // Uniform size
+    size: {default: null},
 
     // Line radii
     radius: {default: 0.03},
@@ -65,9 +52,9 @@ AFRAME.registerComponent("gridaxis", {
     let XZ = document.createElement("a-plane");
 
     // Axis sizes
-    let x_size = this.data.x_max - this.data.x_min;
-    let y_size = this.data.y_max - this.data.y_min;
-    let z_size = this.data.z_max - this.data.z_min;
+    let x_size = this.data.max.x - this.data.min.x;
+    let y_size = this.data.max.y - this.data.min.y;
+    let z_size = this.data.max.z - this.data.min.z;
 
     if (this.data.size > 0) {
       x_size = this.data.size * 2;
@@ -76,9 +63,9 @@ AFRAME.registerComponent("gridaxis", {
     }
 
     // Offsets
-    let x_offset = (this.data.x_max + this.data.x_min) / 2;
-    let y_offset = (this.data.y_max + this.data.y_min) / 2;
-    let z_offset = (this.data.z_max + this.data.z_min) / 2;
+    let x_offset = (this.data.max.x + this.data.min.x) / 2;
+    let y_offset = (this.data.max.y + this.data.min.y) / 2;
+    let z_offset = (this.data.max.z + this.data.min.z) / 2;
 
     // Repeats
     let x_repeat = x_size / this.data.repeat;
