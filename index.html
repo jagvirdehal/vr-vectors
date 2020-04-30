@@ -7,6 +7,7 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
   <script src="vector.js"></script>
+  <script src="gridaxis.js"></script>
   <style>
     body {
       margin: 0;
@@ -25,26 +26,10 @@
       <img id="grid" src="img/Grid15px.png">
     </a-assets>
 
-    <!-- Axes and grid -->
-    <a-entity position="0 0 0" animation="enabled: false; property: object3D.rotation.y; to: 360; dur: 30000; loop: true; easing: linear">
-      <!-- X Y and Z axes (in that order) -->
-      <a-cylinder color="#f00" rotation="0 0 90" radius="0.03" height=16 material="shader: flat; opacity: 0.4"></a-cylinder>
-      <a-cylinder color="#0f0" rotation="0 90 0" radius="0.03" height=16 material="shader: flat; opacity: 0.4"></a-cylinder>
-      <a-cylinder color="#0af" rotation="90 0 0" radius="0.03" height=16 material="shader: flat; opacity: 0.4"></a-cylinder>
-      
-      <!-- XY, YZ, XZ grids -->
-      <a-plane src="#grid" rotation="0 0 90" width=16 height=16 repeat="16 16" material="shader: flat; side: double; transparent: false; alphaTest: 0.1; opacity: 0.4"></a-plane>
-      <a-plane src="#grid" rotation="0 90 0" width=16 height=16 repeat="16 16" material="shader: flat; side: double; transparent: false; alphaTest: 0.1; opacity: 0.4"></a-plane>
-      <a-plane src="#grid" rotation="90 0 0" width=16 height=16 repeat="16 16" material="shader: flat; side: double; transparent: false; alphaTest: 0.1; opacity: 0.4"></a-plane>
-    </a-entity>
-    
-    <!-- Vector -->
-    <a-entity rotation="45 0 -45" animation="enabled: false; property: object3D.rotation.y; to: 360; dur: 3000; loop: true; easing: linear">
-      <a-cylinder position="0 1.85 0" color="blue" radius=0.05 height=3.7></a-cylinder>
-      <a-cone position="0 3.7 0" color="blue" radius-bottom=0.1 height=0.3></a-cone>
-    </a-entity>
-
-    <a-vector3 origin="1 1 1" location="0 5 3" delta=true></a-vector3>
+    <!-- Grid system -->
+    <a-grid src="img/Grid15px.png" animation="enabled: false; property: object3D.rotation.y; to: 360; dur: 30000; loop: true; easing: linear">
+      <a-vector3 origin="1 1 1" location="0 5 3" delta=true></a-vector3>
+    </a-grid>
 
     <!-- Lighting and environment -->
     <a-light intensity="2" position="0 8 0"></a-light>
