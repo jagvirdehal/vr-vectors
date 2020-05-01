@@ -26,12 +26,12 @@ function addVector() {
   grid.appendChild(vector);
 }
 
-function updateVector(event) {
+function updateObject(event) {
   let id = event.target.id;
   let vector = document.querySelector(`a-vector3#${id}`);
 
-  console.log(`a-vector3#${id}`);
-  console.log(vector);
+  // console.log(`a-vector3#${id}`);
+  // console.log(vector);
   
   let location = vector.getAttribute('location').split(' ');
   
@@ -50,7 +50,7 @@ function updateVector(event) {
   vector.setAttribute('location', `${x} ${y} ${z}`);
 }
 
-function showVector() {
+function updateDisplay() {
   let display = document.getElementById("display");
 
   let item = document.createElement("div");
