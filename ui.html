@@ -13,20 +13,14 @@
 </head>
 <body onload="init()">
   <div class="left panel">
-    <button onclick="addVector()">Add object</button>
+    <button onclick="addVector(); updateDisplay()">Add object</button>
     <button>Input mode</button>
     <input type="number" name="vector_x" placeholder="X">
     <input type="number" name="vector_y" placeholder="Y">
     <input type="number" name="vector_z" placeholder="Z">
   </div>
   <div id="display" class="right panel">
-    <span>TEXT</span>
-    <div class="display-item">
-      <span>v0: </span>
-      <input type="number" name="update_x" id="v0" min=-99 max=99 placeholder="X" onchange="updateObject(event)">
-      <input type="number" name="update_y" id="v0" min=-99 max=99 placeholder="Y" onchange="updateObject(event)">
-      <input type="number" name="update_z" id="v0" min=-99 max=99 placeholder="Z" onchange="updateObject(event)">
-    </div>
+    
   </div>
   <a-scene embedded vr-mode-ui="enabled: false">
     <!-- Assets -->
