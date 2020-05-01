@@ -29,9 +29,6 @@ function addVector() {
 function updateObject(event) {
   let id = event.target.id;
   let vector = document.querySelector(`a-vector3#${id}`);
-
-  // console.log(`a-vector3#${id}`);
-  // console.log(vector);
   
   let location = vector.getAttribute('location').split(' ');
   

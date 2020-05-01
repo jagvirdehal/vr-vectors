@@ -45,7 +45,6 @@ AFRAME.registerComponent("vector3", {
   },
 
   update: function() {
-    console.log(this);
     let wrapper = this.el.children[0];
     let body = wrapper.children[0];
     let head = wrapper.children[1];
@@ -55,8 +54,6 @@ AFRAME.registerComponent("vector3", {
 });
 
 function updateVector(data, wrapper, head, body) {
-  console.log(data);
-  
   // Calculate vector coordinates
   let deltaX, deltaY, deltaZ;
   if (data.delta) { // See delta schema
