@@ -1,8 +1,8 @@
+/* TODO: Mobile compatibility */
+
 body {
   background-color: #222;
-
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
   margin: 0;
 }
 
@@ -60,11 +60,19 @@ input[type=number] {
 
 .display-item {
   display: flex;
-
 }
 
 .display-item input {
   width: 25px;
   margin: 0 6px;
   text-align: center;
+}
+
+#display {
+  flex: 1;
+}
+
+#settings {
+  vertical-align: bottom;
+  padding-bottom: 20px;
 }
