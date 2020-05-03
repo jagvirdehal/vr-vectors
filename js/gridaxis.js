@@ -41,6 +41,11 @@ AFRAME.registerComponent("gridaxis", {
     show_YZ: {default: false},
     show_XZ: {default: true},
 
+    // Axis visibility
+    show_x_axis: {default: true},
+    show_y_axis: {default: true},
+    show_z_axis: {default: true},
+
     // Color settings
     x_color: {default: '#f00', type: 'color'},
     y_color: {default: '#0f0', type: 'color'},
@@ -181,9 +186,18 @@ AFRAME.registerComponent("gridaxis", {
     let YZ = document.querySelector("a-grid #grid-YZ");
     let XZ = document.querySelector("a-grid #grid-XZ");
 
+    let x_axis = document.querySelector("a-grid #grid-x-axis");
+    let y_axis = document.querySelector("a-grid #grid-y-axis");
+    let z_axis = document.querySelector("a-grid #grid-z-axis");
+
     // Plane visbility
     XY.setAttribute("visible", `${this.data.show_XY}`);
     YZ.setAttribute("visible", `${this.data.show_YZ}`);
     XZ.setAttribute("visible", `${this.data.show_XZ}`);
+
+    // Axis visibility
+    x_axis.setAttribute("visible", `${this.data.show_x_axis}`);
+    y_axis.setAttribute("visible", `${this.data.show_y_axis}`);
+    z_axis.setAttribute("visible", `${this.data.show_z_axis}`);
   }
 })
