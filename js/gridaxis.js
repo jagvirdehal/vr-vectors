@@ -36,6 +36,11 @@ AFRAME.registerComponent("gridaxis", {
     // Grid texture
     grid: {type: "map"},
 
+    // Plane visibility
+    show_XY: {default: false},
+    show_YZ: {default: false},
+    show_XZ: {default: true},
+
     // Color settings
     x_color: {default: '#f00', type: 'color'},
     y_color: {default: '#0f0', type: 'color'},
@@ -76,6 +81,11 @@ AFRAME.registerComponent("gridaxis", {
     /* AXIS SETTINGS */
     /*****************/
 
+    // IDs
+    x_axis.setAttribute('id', 'grid-x-axis');
+    y_axis.setAttribute('id', 'grid-y-axis');
+    z_axis.setAttribute('id', 'grid-z-axis');
+
     // Size
     x_axis.setAttribute('height', `${x_size}`);
     y_axis.setAttribute('height', `${y_size}`);
@@ -109,6 +119,11 @@ AFRAME.registerComponent("gridaxis", {
     /******************/
     /* PLANE SETTINGS */
     /******************/
+
+    // IDs
+    XY.setAttribute('id', 'grid-XY');
+    YZ.setAttribute('id', 'grid-YZ');
+    XZ.setAttribute('id', 'grid-XZ');
 
     // Size
     XY.setAttribute('height', `${x_size}`);
@@ -159,5 +174,16 @@ AFRAME.registerComponent("gridaxis", {
     this.el.appendChild(XY);
     this.el.appendChild(YZ);
     this.el.appendChild(XZ);
+  },
+
+  update: function() {
+    let XY = document.querySelector("a-grid #grid-XY");
+    let YZ = document.querySelector("a-grid #grid-YZ");
+    let XZ = document.querySelector("a-grid #grid-XZ");
+
+    // Plane visbility
+    XY.setAttribute("visible", `${this.data.show_XY}`);
+    YZ.setAttribute("visible", `${this.data.show_YZ}`);
+    XZ.setAttribute("visible", `${this.data.show_XZ}`);
   }
 })
