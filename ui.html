@@ -13,14 +13,22 @@
 </head>
 <body onload="init()">
   <div class="left panel">
-    <button onclick="addVector(); updateDisplay()">Add object</button>
-    <button>Input mode</button>
-    <input type="number" name="vector_x" placeholder="X">
-    <input type="number" name="vector_y" placeholder="Y">
-    <input type="number" name="vector_z" placeholder="Z">
+    <button onclick="addVector(); updateDisplay()">Add vector</button>
+    <!-- <button>Input mode</button> -->
+    <input type="number" name="vector_x" placeholder="X" value=1>
+    <input type="number" name="vector_y" placeholder="Y" value=1>
+    <input type="number" name="vector_z" placeholder="Z" value=1>
   </div>
-  <div id="display" class="right panel">
-    
+  <div class="right panel">
+    <div id="display">
+
+    </div>
+    <div id="settings">
+      <span>Toggle Visibility:</span><br>
+      <span>XY:</span><input type="checkbox" name="show_XY" onchange="updateVisibility()"><br>
+      <span>YZ:</span><input type="checkbox" name="show_YZ" onchange="updateVisibility()"><br>
+      <span>XZ:</span><input type="checkbox" name="show_XZ" checked onchange="updateVisibility()"><br>
+    </div>
   </div>
   <a-scene embedded vr-mode-ui="enabled: false">
     <!-- Assets -->
@@ -30,7 +38,7 @@
 
     <!-- Grid system -->
     <a-grid src="#grid" animation="enabled: false; property: object3D.rotation.y; to: 360; dur: 30000; loop: true; easing: linear">
-      
+
     </a-grid>
 
     <!-- Lighting and environment -->

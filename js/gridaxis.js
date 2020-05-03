@@ -16,15 +16,13 @@ AFRAME.registerPrimitive("a-grid", {
     y_color: "gridaxis.y_color",
     z_color: "gridaxis.z_color",
 
-    visbility: {
-      XY: "gridaxis.show_XY",
-      YZ: "gridaxis.show_YZ",
-      XZ: "gridaxis.show_XZ",
+    show_xy: "gridaxis.show_XY",
+    show_yz: "gridaxis.show_YZ",
+    show_xz: "gridaxis.show_XZ",
 
-      x_axis: "gridaxis.show_x_axis",
-      y_axis: "gridaxis.show_y_axis",
-      z_axis: "gridaxis.show_z_axis",
-    },
+    show_x_axis: "gridaxis.show_x_axis",
+    show_y_axis: "gridaxis.show_y_axis",
+    show_z_axis: "gridaxis.show_z_axis",
   }
 })
 

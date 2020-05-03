@@ -130,3 +130,21 @@ function updateDisplay() {
     display.appendChild(container);
   });
 }
+
+function updateVisibility() {
+  let grid = document.querySelector("a-grid");
+
+  let show_XY = document.querySelector(`[name="show_XY"]`);
+  let show_YZ = document.querySelector(`[name="show_YZ"]`);
+  let show_XZ = document.querySelector(`[name="show_XZ"]`);
+
+  let visibility = {
+    XY: `${show_XY.checked}`,
+    YZ: `${show_YZ.checked}`,
+    XZ: `${show_XZ.checked}`,
+  }
+
+  grid.setAttribute("show_XY", `${show_XY.checked}`);
+  grid.setAttribute("show_YZ", `${show_YZ.checked}`);
+  grid.setAttribute("show_XZ", `${show_XZ.checked}`);
+}
