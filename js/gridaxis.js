@@ -69,6 +69,10 @@ AFRAME.registerComponent("gridaxis", {
     let YZ = document.createElement("a-plane");
     let XZ = document.createElement("a-plane");
 
+    let x_label = document.createElement("a-text");
+    let y_label = document.createElement("a-text");
+    let z_label = document.createElement("a-text");
+
     // Axis sizes
     let x_size = this.data.max.x - this.data.min.x;
     let y_size = this.data.max.y - this.data.min.y;
@@ -130,6 +134,31 @@ AFRAME.registerComponent("gridaxis", {
     z_axis.setAttribute('material', `shader: flat; opacity: 0.4`);
 
     /******************/
+    /* LABEL SETTINGS */
+    /******************/
+
+    // Text
+    x_label.setAttribute('value', 'x');
+    y_label.setAttribute('value', 'y');
+    z_label.setAttribute('value', 'z');
+
+    // Position
+    x_label.setAttribute('position', `${x_size / 2 + x_offset + 0.1} 0 0`);
+    y_label.setAttribute('position', `0 ${y_size / 2 + y_offset + 0.1} 0`);
+    z_label.setAttribute('position', `0 0 ${z_size / 2 + y_offset + 0.1}`);
+
+    // Color
+    x_label.setAttribute('color', '#f55');
+    y_label.setAttribute('color', '#0f0');
+    z_label.setAttribute('color', '#0af');
+    
+
+    // Look at camera
+    x_label.setAttribute('label', '');
+    y_label.setAttribute('label', '');
+    z_label.setAttribute('label', '');
+
+    /******************/
     /* PLANE SETTINGS */
     /******************/
 
@@ -181,9 +210,15 @@ AFRAME.registerComponent("gridaxis", {
     /* APPEND CHILD */
     /****************/
 
+    
     this.el.appendChild(x_axis);
     this.el.appendChild(y_axis);
     this.el.appendChild(z_axis);
+    
+    this.el.appendChild(x_label);
+    this.el.appendChild(y_label);
+    this.el.appendChild(z_label);
+
     this.el.appendChild(XY);
     this.el.appendChild(YZ);
     this.el.appendChild(XZ);
