@@ -143,9 +143,9 @@ AFRAME.registerComponent("gridaxis", {
     z_label.setAttribute('value', 'z');
 
     // Position
-    x_label.setAttribute('position', `${x_size / 2 + x_offset + 0.1} 0 0`);
-    y_label.setAttribute('position', `0 ${y_size / 2 + y_offset + 0.1} 0`);
-    z_label.setAttribute('position', `0 0 ${z_size / 2 + y_offset + 0.1}`);
+    x_label.setAttribute('position', `${x_size / 2 + x_offset + 0.2} 0 0`);
+    y_label.setAttribute('position', `0 ${y_size / 2 + y_offset + 0.2} 0`);
+    z_label.setAttribute('position', `0 0 ${z_size / 2 + y_offset + 0.2}`);
 
     // Color
     x_label.setAttribute('color', '#f55');

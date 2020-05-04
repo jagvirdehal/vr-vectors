@@ -1,6 +1,8 @@
 AFRAME.registerComponent("label", {
   init: function() {
     this.el.setAttribute('align', 'center');
+    this.el.setAttribute('width', '8');
+    this.el.setAttribute('height', 'auto');
     console.log(this.el);
   },
 
