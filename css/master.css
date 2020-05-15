@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    height: 100%;
+}
+
+a-scene {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 50vh;
+    width: 100vw;
+}
+
+.control-drawer {
+    background-color: #444;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 51vh;
+    width: 100vw;
+}
+
+.control-drawer #hide {
+    float: right;
+    color: white;
+    background-color: #ffffff00;
+}
+
+.entries {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entry {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+.inputs {
+    border: none;
+    border-radius: 8px;
+
+    padding: 8px 10px;
+    
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="number"] {
+    -moz-appearance:textfield;
+    width: 6ch;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+@media (min-aspect-ratio: 4/3) {
+    a-scene {
+        height: 100vh;
+    }
+
+    .control-drawer {
+        visibility: hidden;
+    }
+}
