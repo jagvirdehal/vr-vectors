@@ -1,3 +1,4 @@
+// Vector primitive
 AFRAME.registerPrimitive("a-vector3", {
   defaultComponents: {
     vector3: {}
@@ -12,6 +13,7 @@ AFRAME.registerPrimitive("a-vector3", {
   }
 });
 
+// Vector component <vector3 />
 AFRAME.registerComponent("vector3", {
   schema: {
     // Location of head/tail
@@ -28,6 +30,7 @@ AFRAME.registerComponent("vector3", {
     color: {default: "#fff", type: "color"},
   },
 
+  // Call on initialize
   init: function () {
     /* Wrapper used for rotation and translation
        Body used to draw the 'line' part of the vector
@@ -44,6 +47,7 @@ AFRAME.registerComponent("vector3", {
     wrapper.appendChild(head);
   },
 
+  // Call every tick
   update: function() {
     let wrapper = this.el.children[0];
     let body = wrapper.children[0];
@@ -53,6 +57,7 @@ AFRAME.registerComponent("vector3", {
   }
 });
 
+// Update selected vector
 function updateVector(data, wrapper, head, body) {
   // Calculate vector coordinates
   let deltaX, deltaY, deltaZ;
