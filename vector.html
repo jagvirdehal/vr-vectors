@@ -12,13 +12,8 @@
     <!-- Custom modules -->
     <script src="js/vector.js"></script>
     <script src="js/gridaxis.js"></script>
-    <script src="js/ui.js"></script>
     <script src="js/label.js"></script>
     
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/master.css">
 </head>
@@ -45,32 +40,5 @@
         <a-entity camera look-controls="enabled: false"
             orbit-controls="target: 0 0 0; minDistance: 0.5; maxDistance: 180; initialPosition: 6 4 14"></a-entity>
     </a-scene>
-
-    <!-- UI Elements -->
-    <div class="control-drawer">
-        <button id="hide" class="inputs" onclick="toggleDrawer(event)">&darr;&darr;&darr;</button>
-        <div class="entries">
-            <div class="entry-template" hidden="true">
-                <div class="entry active">
-                    <button id="add" class="inputs" disabled style="opacity: 0">Add</button>
-                    <div class="numbers">
-                        <input id="x" class="inputs" type="number" value="0" min="-8" max="8" step=0.5 />
-                        <input id="y" class="inputs" type="number" value="0" min="-8" max="8" step=0.5 />
-                        <input id="z" class="inputs" type="number" value="0" min="-8" max="8" step=0.5 />
-                    </div>
-                    <button id="add" class="inputs" onclick="addVectorEntry(event)">Add</button>
-                </div>
-            </div>
-            <div class="entry active">
-                <button id="add" class="inputs" disabled style="opacity: 0">Add</button>
-                <div class="numbers">
-                    <input id="x" class="inputs" type="number" value="0" min="-8" max="8" step=0.5 />
-                    <input id="y" class="inputs" type="number" value="0" min="-8" max="8" step=0.5 />
-                    <input id="z" class="inputs" type="number" value="0" min="-8" max="8" step=0.5 />
-                </div>
-                <button id="add" class="inputs" onclick="addVectorEntry(event)">Add</button>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
