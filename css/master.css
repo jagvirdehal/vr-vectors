@@ -57,7 +57,7 @@ input::-webkit-inner-spin-button {
 
 /* Mobile settings */
 @media (max-aspect-ratio: 4/3) {
-    body {
+    body #app {
         flex-direction: column-reverse;
     }
     
