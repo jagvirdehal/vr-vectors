@@ -39,7 +39,9 @@
                 </template>
                 <button @click="vector.locationControl = !vector.locationControl">{{ vector.name }}</button>
             </div>
-            <button @click="vectors.push({name: `Vector ${vectors.length + 1}`, locationControl: true, location: {x:1, y:1, z:1}, position: {x:0, y:0, z:0}})">Add Vector</button>
+            <button @click="vectors.push({name: `Vector ${vectors.length + 1}`, locationControl: true, location: {x:1, y:1, z:1}, position: {x:0, y:0, z:0}})">
+                New Vector
+            </button>
         </div>
     
         <!-- VR Scene -->
