@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Vector Sandbox</title>
 
     <!-- Aframe and orbit controls scripts -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+    
+    <!-- Vue JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 
     <!-- Custom modules -->
     <script src="js/vector.js"></script>
@@ -18,27 +21,71 @@
     <link rel="stylesheet" href="css/master.css">
 </head>
 <body onload="init()">
-    <!-- VR Scene -->
-    <a-scene embedded vr-mode-ui="enabled: false">
-        <!-- Assets -->
-        <a-assets>
-            <img id="grid" src="img/Grid15px.png">
-        </a-assets>
+    <!-- Vue App -->
+    <div id="app">
+        <!-- Controls sidebar -->
+        <div id="controls">
+            <h1>{{ title }}</h1>
+            <div v-for="vector in vectors">
+                <template v-if="vector.locationControl">
+                    <input type="number" v-model.number="vector.location.x">
+                    <input type="number" v-model.number="vector.location.y">
+                    <input type="number" v-model.number="vector.location.z">
+                </template>
+                <template v-else>
+                    <input style="color: red" type="number" v-model.number="vector.position.x">
+                    <input style="color: red" type="number" v-model.number="vector.position.y">
+                    <input style="color: red" type="number" v-model.number="vector.position.z">
+                </template>
+                <button @click="vector.locationControl = !vector.locationControl">{{ vector.name }}</button>
+            </div>
+            <button @click="vectors.push({name: `Vector ${vectors.length + 1}`, locationControl: true, location: {x:1, y:1, z:1}, position: {x:0, y:0, z:0}})">Add Vector</button>
+        </div>
     
-        <!-- Grid system -->
-        <a-grid src="#grid"
-            animation="enabled: false; property: object3D.rotation.y; to: 360; dur: 30000; loop: true; easing: linear">
-        </a-grid>
-    
-        <!-- Lighting and environment -->
-        <a-light intensity="2" position="0 8 0"></a-light>
-        <a-light type="ambient" color="#999"></a-light>
-        <a-sky color="#222"></a-sky>
-    
-        <!-- Camera -->
-        <a-entity camera look-controls="enabled: false"
-            orbit-controls="target: 0 0 0; minDistance: 0.5; maxDistance: 180; initialPosition: 6 4 14">
-        </a-entity>
-    </a-scene>
+        <!-- VR Scene -->
+        <div id="scene">
+            <a-scene embedded vr-mode-ui="enabled: false">
+                <!-- Assets -->
+                <a-assets>
+                    <img id="grid" src="img/Grid15px.png">
+                </a-assets>
+                
+                <a-vector3 v-for="vector in vectors" v-bind:location="vector.location | posToString" v-bind:position="vector.position | posToString"></a-vector3>
+
+                <!-- Grid system -->
+                <a-grid src="#grid"
+                    animation="enabled: false; property: object3D.rotation.y; to: 360; dur: 30000; loop: true; easing: linear">
+                </a-grid>
+            
+                <!-- Lighting and environment -->
+                <a-light intensity="2" position="0 8 0"></a-light>
+                <a-light type="ambient" color="#999"></a-light>
+                <a-sky color="#222"></a-sky>
+            
+                <!-- Camera -->
+                <a-entity camera look-controls="enabled: false"
+                    orbit-controls="target: 0 0 0; minDistance: 0.5; maxDistance: 180; initialPosition: 6 4 14">
+                </a-entity>
+            </a-scene>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                title: 'VR Vectors',
+                vectors: [
+                    {name: "Vector 1", locationControl: true, location: {x:1, y:1, z:1}, position: {x:0, y:0, z:0}},
+                ]
+            },
+            filters: {
+                posToString: function (pos) {
+                    if (!pos) return '';
+                    return `${pos.x} ${pos.y} ${pos.z}`;
+                }
+            }
+        });
+    </script>
 </body>
 </html>
