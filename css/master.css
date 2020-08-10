@@ -24,19 +24,35 @@ body #app {
 
     cursor: auto;
     z-index: 10;
-    background-color: gray;
+    
+    background-color: #222;
+    border-right: #ebb444 solid 5px;
 }
 
 #controls div {
-    padding-bottom: 10px;
     display: flex;
     width: 100%;
+    padding-bottom: 10px;
     justify-content: space-evenly;
 }
 
 #controls div input {
-    /* width: 20px; */
     text-align: center;
+    padding: 0.8ch;
+    border-radius: 12px;
+    border: none;
+}
+
+#controls button {
+    background-color: #eee;
+    color: #222;
+    border: #ebb444 solid 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#controls h1 {
+    color: #ebb444;
 }
 
 input[type="number"] {
@@ -46,13 +62,8 @@ input[type="number"] {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
-
-#controls h1 {
-    color: white;
+    margin: 0;
 }
 
 /* Mobile settings */

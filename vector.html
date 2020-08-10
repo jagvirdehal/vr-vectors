@@ -37,7 +37,18 @@
                     <input style="color: red" type="number" v-model.number="vector.position.y">
                     <input style="color: red" type="number" v-model.number="vector.position.z">
                 </template>
-                <button @click="vector.locationControl = !vector.locationControl">{{ vector.name }}</button>
+                <button
+                @mouseover="hoverText = true"
+                @mouseleave="hoverText = false"
+                @click="vector.locationControl = !vector.locationControl"
+                v-on:click.right="vector.locationControl = !vector.locationControl">
+                    <template v-if="vector.locationControl">
+                        {{ vector.name }}
+                    </template>
+                    <template v-else>
+                        Translate
+                    </template>
+                </button>
             </div>
             <button @click="vectors.push({name: `Vector ${vectors.length + 1}`, locationControl: true, location: {x:1, y:1, z:1}, position: {x:0, y:0, z:0}})">
                 New Vector
@@ -77,6 +88,7 @@
             el: '#app',
             data: {
                 title: 'VR Vectors',
+                hoverText: false,
                 vectors: [
                     {name: "Vector 1", locationControl: true, location: {x:1, y:1, z:1}, position: {x:0, y:0, z:0}},
                 ]
